@@ -1,7 +1,7 @@
 sudo: false
 language: c
 install:
-- sudo apt-get install mpich2
+- sudo apt-get install mpich2 cunit
 script:
   - cd demos/continuous-integration
   - make test
