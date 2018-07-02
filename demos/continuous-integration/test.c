@@ -1,5 +1,6 @@
 #include <math.h>
 #include <CUnit/Basic.h>
+#include <stdio.h>
 #include <mpi.h>
 
 #include "heat.h"
@@ -51,12 +52,22 @@ int init_suite(void)
        return -1;
     }
     else
+    {
        return 0;
+    }
 }
 
 int main(int argc, char **argv)
 {
+   int rank;
    MPI_Init(&argc, &argv);
+   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+   // Redirect stdout and stderr if not master
+   if (rank != 0) {
+       freopen( "/dev/null", "w", stdout);
+       freopen( "/dev/null", "w", stderr);
+   }
+
    CU_pSuite pSuite = NULL;
 
    /* initialize the CUnit test registry */
