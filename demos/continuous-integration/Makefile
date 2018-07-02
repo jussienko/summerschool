@@ -1,4 +1,4 @@
-COMMONDIR=./
+COMMONDIR=.
 
 CC=mpicc
 CCFLAGS=-O3 -Wall -I$(COMMONDIR)
@@ -28,7 +28,7 @@ $(OBJS_TEST): C_COMPILER := $(CC)
 $(EXE): $(OBJS) $(OBJS_PNG)
 	$(CC) $(CCFLAGS) $(OBJS) $(OBJS_PNG) -o $@ $(LDFLAGS) $(LIBS)
 
-test: $(OBJS_TEST) 
+test: $(OBJS_TEST) $(OBJS_PNG)
 	$(CC) $(CCFLAGS) $(OBJS_TEST) $(OBJS_PNG) -o $@ $(LDFLAGS) $(LIBS) -lcunit
 
 %.o: %.c
