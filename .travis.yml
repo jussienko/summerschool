@@ -1,7 +1,7 @@
 sudo: false
 language: c
 before_install:
-  - sudo apt-get install mpich2
+  - sudo apt-get install mpich2 
   - wget http://downloads.sourceforge.net/project/cunit/CUnit/2.1-2/CUnit-2.1-2-src.tar.bz2
   - tar -xvjpf CUnit-2.1-2-src.tar.bz2
   - cd CUnit-2.1-2
@@ -15,4 +15,4 @@ before_install:
 script:
   - cd demos/continuous-integration
   - make test
-  - ./mpich/bin/mpirun -np 4 ./test
+  - mpirun -np 4 ./test
