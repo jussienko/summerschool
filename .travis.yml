@@ -1,5 +1,6 @@
 sudo: false
 language: c
+env: MPI=openmpi
 before_install:
   - test -n $CC && unset CC
 script:
