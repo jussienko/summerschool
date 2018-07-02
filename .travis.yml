@@ -1,8 +1,10 @@
 sudo: false
 language: c
-env: MPI=openmpi
+cache:
+  directories:
+  - mpich
 before_install:
-  - test -n $CC && unset CC
+  - sh ./get_mpich.sh
 script:
   - cd demos/continuous-integration
   - make test
