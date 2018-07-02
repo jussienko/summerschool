@@ -1,10 +1,7 @@
 sudo: false
 language: c
-cache:
-  directories:
-  - mpich
-before_install:
-  - sh ./get_mpich.sh
+install:
+- sudo apt-get install mpich2
 script:
   - cd demos/continuous-integration
   - make test
